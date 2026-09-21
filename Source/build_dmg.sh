@@ -8,27 +8,27 @@ DMG_NAME="LidMotion_1.0.0.dmg"
 DMG_PATH="$BUILD_DIR/$DMG_NAME"
 TEMP_DMG_DIR="$BUILD_DIR/dmg_temp"
 
-echo "=== Creazione DMG per LidMotion ==="
+echo "=== Creating DMG for LidMotion ==="
 
-# Verifica che l'app esista
+# Check if app exists
 if [ ! -d "$APP_BUNDLE" ]; then
-    echo "Errore: LidMotion.app non trovata. Esegui prima build.sh."
+    echo "Error: LidMotion.app not found. Run build.sh first."
     exit 1
 fi
 
-# Prepara la cartella temporanea per il DMG
+# Prepare temporary folder for DMG
 rm -rf "$TEMP_DMG_DIR"
 mkdir -p "$TEMP_DMG_DIR"
 cp -R "$APP_BUNDLE" "$TEMP_DMG_DIR/"
 ln -s /Applications "$TEMP_DMG_DIR/Applications"
 
-# Rimuovi DMG esistente
+# Remove existing DMG
 rm -f "$DMG_PATH"
 
-echo "Generazione immagine disco..."
+echo "Generating disk image..."
 hdiutil create -volname "LidMotion" -srcfolder "$TEMP_DMG_DIR" -ov -format UDZO "$DMG_PATH"
 
-# Pulizia
+# Cleanup
 rm -rf "$TEMP_DMG_DIR"
 
-echo "=== DMG pronto: $DMG_PATH ==="
+echo "=== DMG ready: $DMG_PATH ==="

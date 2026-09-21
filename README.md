@@ -6,6 +6,8 @@ LidMotion brings beautiful, native closing effects to your MacBook. Experience i
 
 LidMotion is incredibly lightweight, runs silently in your menu bar, and requires zero bloated windows or dock icons. Just raw, native performance.
 
+### [🚀 Download LidMotion 1.0.0](https://github.com/tommasogodi06-crypto/LidMotion/releases/download/v1.0.0/LidMotion_1.0_Final.dmg)
+
 ## Features
 - **The Iconic Duo Effect:** Inspired by classic animations, seamlessly adapted for macOS.
 - **Multiple Animations:** Choose from Expansion, Fade, CRT, and more.
@@ -17,14 +19,17 @@ LidMotion is incredibly lightweight, runs silently in your menu bar, and require
 - Supports both Apple Silicon (M1/M2/M3) and Intel Macs.
 
 ## Compilation & Installation
-As an open-source project, you can easily build LidMotion from source:
+
+If you just want to use the app, you can download the pre-compiled DMG from the [v1.0.0 Release page](https://github.com/tommasogodi06-crypto/LidMotion/releases/tag/v1.0.0).
+
+Alternatively, as an open-source project, you can easily build LidMotion from source:
 1. Clone this repository: `git clone https://github.com/tommasogodi06-crypto/LidMotion.git`
 2. Navigate to the source folder and open the project in Xcode (or use the provided build scripts).
 3. Build and run the `LidMotion` target.
 *(Note: On first launch, macOS will require you to grant Accessibility and Screen Recording permissions to enable the window effects).*
 
 ## Project Structure
-- `Sorgenti/`: Contains the Swift source code, build scripts (`build.sh`, `build_dmg.sh`), and application logic.
+- `Source/`: Contains the Swift source code, build scripts (`build.sh`, `build_dmg.sh`), and application logic.
 - `Website/`: The complete source code for the LidMotion landing page.
 
 ## Contributing

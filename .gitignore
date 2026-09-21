@@ -10,8 +10,8 @@ DerivedData/
 *.ipa
 *.dmg
 *.app/
-Sorgenti/Archives/
-Sorgenti/build/
+Source/Archives/
+Source/build/
 
 # Xcode / Swift
 *.pbxuser
@@ -33,5 +33,5 @@ DerivedData
 # Project Specific Exclusions
 Sorgenti_Backup_v1.0/
 Website/.scripts_archive/
-Sorgenti/scratch_effects.txt
+Source/scratch_effects.txt
 Website/google*.html

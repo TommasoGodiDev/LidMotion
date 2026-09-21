@@ -7,7 +7,7 @@ BUILD_DIR="$SCRIPT_DIR/build"
 APP_BUNDLE="$BUILD_DIR/LidMotion.app"
 CACHE_DIR="/tmp/swift-cache"
 
-echo "=== Compilazione LidMotion ==="
+echo "=== Building LidMotion ==="
 mkdir -p "$BUILD_DIR"
 mkdir -p "$CACHE_DIR"
 mkdir -p "$APP_BUNDLE/Contents/MacOS"
@@ -29,7 +29,7 @@ SOURCES=(
     "$SCRIPT_DIR/Sources/UI/OnboardingView.swift"
 )
 
-echo "Compilazione sorgenti Swift..."
+echo "Compiling Swift sources..."
 swiftc \
     -module-cache-path "$CACHE_DIR" \
     -O \
@@ -50,22 +50,22 @@ swiftc \
     -o "$APP_BUNDLE/Contents/MacOS/LidMotion" \
     "${SOURCES[@]}"
 
-echo "Copia Info.plist e assets..."
+echo "Copying Info.plist and assets..."
 cp "$SCRIPT_DIR/Resources/Info.plist" "$APP_BUNDLE/Contents/Info.plist"
 if [ -f "$SCRIPT_DIR/Resources/AppIcon.icns" ]; then
     cp "$SCRIPT_DIR/Resources/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
 fi
 
-echo "Rimozione attributi estesi..."
+echo "Removing extended attributes..."
 xattr -cr "$APP_BUNDLE"
 
-echo "Firma dell'applicazione con firma ad-hoc..."
+echo "Codesigning with ad-hoc signature..."
 codesign --force --deep --sign - "$APP_BUNDLE"
 
-echo "Verifica firma..."
+echo "Verifying signature..."
 codesign --verify --verbose "$APP_BUNDLE"
 
-echo "=== Compilazione completata con successo! ==="
+echo "=== Build completed successfully! ==="
 rm -rf "$ROOT_DIR/LidMotion.app"
 cp -R "$APP_BUNDLE" "$ROOT_DIR/LidMotion.app"
-echo "App pronta in: LidMotion/LidMotion.app"
+echo "App ready in: LidMotion/LidMotion.app"
