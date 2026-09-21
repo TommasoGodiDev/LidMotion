@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
+
 
     <link rel="canonical" href="https://lidmotion.n4nhcnd8bg.workers.dev/">
     <meta property="og:title" content="LidMotion – MacBook Closing Effects & Duo Effect">
@@ -57,9 +57,9 @@
     </nav>
 
     <main>
-        
+
         <!-- Hero Section -->
-        
+
     <header class="hero-header">
         <img src="AppIcon.png" alt="LidMotion Icon" class="hero-icon">
         <h1 class="hero-title">LidMotion</h1>
@@ -72,18 +72,18 @@
                 <img src="AppIcon.png" alt="LidMotion Icon" class="hero-icon">
                 <h1 class="hero-title">LidMotion</h1>
                 <p class="hero-subtitle">All the magical effects, perfected.</p>
-                
+
                 <div class="mac-3d-wrapper">
                     <div class="mac-3d" id="mac-3d">
                         <div class="mac-lid" id="mac-lid">
                             <div class="mac-screen">
                                 <div class="mac-notch"></div>
-                                
-                                
-                                
+
+
+
                                 <div class="mac-ui">
                                     <div class="mac-wallpaper"></div>
-                                    
+
                                     <div class="mac-dock">
                                     </div>
 
@@ -125,8 +125,8 @@
                 <div class="ui-media fade-up" style="margin-bottom: 60px;">
                     <p class="ui-text">The flagship animation that started it all. Watch your desktop seamlessly fold into real space as you close your Mac. No lag, no stutter, just pure magic.</p>
                 </div>
-                
-                
+
+
                 <div class="video-presentation fade-up" style="margin-top: 40px;">
                     <video src="https://pub-20faaccbb97540da9fa31b25764ba036.r2.dev/video%20prova/IMG_1843.mov" autoplay loop muted playsinline></video>
                 </div>
@@ -139,7 +139,7 @@
             <div class="content-wrapper">
                 <h2 class="section-title fade-up">Experience them all.</h2>
                 <p class="section-text fade-up" style="margin-bottom: 40px;">Select an effect below to see it in action.</p>
-                
+
                 <div class="interactive-container fade-up">
                     <div class="effect-selector">
                         <button class="effect-btn active" data-video="https://pub-20faaccbb97540da9fa31b25764ba036.r2.dev/video%20prova/IMG_1843.mov">Duo</button>
@@ -150,8 +150,8 @@
                         <button class="effect-btn" data-video="https://pub-20faaccbb97540da9fa31b25764ba036.r2.dev/video%20prova/IMG_1848.mov">Glitch</button>
                         <button class="effect-btn" data-video="https://pub-20faaccbb97540da9fa31b25764ba036.r2.dev/video%20prova/IMG_1849.mov">Notch Drop</button>
                     </div>
-                    
-                    
+
+
                     <div class="video-presentation showcase-mockup">
                         <video id="showcase-video" src="https://pub-20faaccbb97540da9fa31b25764ba036.r2.dev/video%20prova/IMG_1843.mov" autoplay loop muted playsinline></video>
                     </div>
@@ -164,11 +164,11 @@
         <section id="features" class="ui-section">
             <div class="content-wrapper flex-center">
                 <h2 class="section-title fade-up">Beautiful. Native. Lightweight.</h2>
-                
+
                 <div class="ui-media fade-up">
                     <p class="ui-text">Runs silently in your menu bar. No bloated windows, no dock icons.<br>Just raw, native performance.</p>
                 </div>
-                
+
                 <div class="bento-grid fade-up">
                     <div class="bento-card">
                         <div class="feature-icon">✨</div>
@@ -198,8 +198,13 @@
                     <h2 class="price-title">LidMotion 1.0</h2>
                     <p class="compatibility">Requires macOS 14.0 or later.</p>
                     <div class="price" style="font-size: 1.5rem; margin-bottom: 1.5rem;">LidMotion is free and open source.</div>
-                    <a href="https://github.com/tommasogodi06-crypto/LidMotion/releases/tag/v1.0.0" class="btn-buy-large" target="_blank" rel="noopener">Download for free</a>
-                    
+                    <a href="https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.0.0" class="btn-buy-large" target="_blank" rel="noopener">Download for free</a>
+
+                    <div style="margin-top: 2rem;">
+                        <p style="font-size: 0.95rem; color: #86868b; margin-bottom: 0.8rem;">LidMotion is completely free. If you enjoy it, consider supporting its development!</p>
+                        <a href="https://buymeacoffee.com/lidmotion" target="_blank" rel="noopener" style="display: inline-block; background-color: #FFDD00; color: #000000; padding: 10px 20px; border-radius: 980px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: opacity 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">☕ Buy me a coffee</a>
+                    </div>
+
                     <div class="install-instructions">
                         <h4>First Launch Instructions</h4>
                         <ol>
@@ -223,7 +228,7 @@
 
     <script>
         // Prevent horizontal scroll bouncing on iOS
-        document.body.addEventListener('touchmove', function(e) { 
+        document.body.addEventListener('touchmove', function(e) {
             // passive listener
         }, { passive: true });
 
@@ -261,10 +266,10 @@
         const macLid = document.getElementById('mac-lid');
         const screenDimmer = document.getElementById('screen-dimmer');
         const stickyContent = document.querySelector('.hero-sticky-content');
-        
+
         let isScrolling = false;
-        
-        
+
+
         function resizeMac() {
             const wrapper = document.querySelector('.mac-3d-wrapper');
             if (!wrapper) return;
@@ -284,12 +289,12 @@
 
             const rect = heroContainer.getBoundingClientRect();
             const scrollRange = rect.height - window.innerHeight;
-            
+
             let scrollProgress = 0;
             if (rect.top < 0) {
                 scrollProgress = Math.min(1, -rect.top / scrollRange);
             }
-            
+
             // DELAY THE CLOSING ANIMATION:
             // 0.0 to 0.15 -> Do nothing, let user scroll the Mac fully into view
             // 0.15 to 0.75 -> Close the Mac
@@ -303,16 +308,16 @@
             // Overclose slightly to -92 to ensure perfect intersection visual
             const angle = animProgress * -92; // -92 degrees is perfectly closed over the keyboard
             macLid.style.transform = `rotateX(${angle}deg)`;
-            
+
             // Dim screen as it closes
             const dimOpacity = Math.min(1, animProgress * 1.5);
             screenDimmer.style.opacity = dimOpacity;
 
             // Fade out the entire hero block at the very end
-            
-            
-            
-            
+
+
+
+
             isScrolling = false;
         }
 
@@ -322,7 +327,7 @@
                 requestAnimationFrame(updateMacAnimation);
             }
         });
-        
+
         // Initial setup
         updateMacAnimation();
     </script>

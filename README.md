@@ -6,7 +6,7 @@ LidMotion brings beautiful, native closing effects to your MacBook. Experience i
 
 LidMotion is incredibly lightweight, runs silently in your menu bar, and requires zero bloated windows or dock icons. Just raw, native performance.
 
-### [🚀 Download LidMotion 1.0.0](https://github.com/tommasogodi06-crypto/LidMotion/releases/download/v1.0.0/LidMotion_1.0_Final.dmg)
+### [🚀 Download LidMotion 1.0.0](https://github.com/TommasoGodiDev/LidMotion/releases/download/v1.0.0/LidMotion_1.0_Final.dmg)
 
 ## Features
 - **The Iconic Duo Effect:** Inspired by classic animations, seamlessly adapted for macOS.
@@ -20,10 +20,10 @@ LidMotion is incredibly lightweight, runs silently in your menu bar, and require
 
 ## Compilation & Installation
 
-If you just want to use the app, you can download the pre-compiled DMG from the [v1.0.0 Release page](https://github.com/tommasogodi06-crypto/LidMotion/releases/tag/v1.0.0).
+If you just want to use the app, you can download the pre-compiled DMG from the [v1.0.0 Release page](https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.0.0).
 
 Alternatively, as an open-source project, you can easily build LidMotion from source:
-1. Clone this repository: `git clone https://github.com/tommasogodi06-crypto/LidMotion.git`
+1. Clone this repository: `git clone https://github.com/TommasoGodiDev/LidMotion.git`
 2. Navigate to the source folder and open the project in Xcode (or use the provided build scripts).
 3. Build and run the `LidMotion` target.
 *(Note: On first launch, macOS will require you to grant Accessibility and Screen Recording permissions to enable the window effects).*
@@ -34,6 +34,14 @@ Alternatively, as an open-source project, you can easily build LidMotion from so
 
 ## Contributing
 Contributions are welcome! If you have ideas for new closing effects, bug fixes, or performance improvements, feel free to open an issue or submit a pull request.
+
+## Support
+LidMotion is a completely free and open-source project. If you enjoy using it and want to support its ongoing development, you can buy me a coffee! ☕️
+
+- [Buy Me a Coffee](https://buymeacoffee.com/lidmotion)
+- [GitHub Sponsors](https://github.com/sponsors/TommasoGodiDev)
+
+Your support is greatly appreciated, but never required!
 
 ## License
 LidMotion is distributed under the [MIT License](LICENSE). 
