@@ -12,6 +12,7 @@ final class FoldController {
     private(set) var reference: Double?
 
     private var lastSampleTime: CFTimeInterval = 0
+    private var hasPlayedEndSound = false
     private var stillAnchor = 0.0
     private var stillSince: CFTimeInterval = 0
     private var captureInFlight = false
@@ -20,6 +21,7 @@ final class FoldController {
     private var samples: [(time: CFTimeInterval, angle: Double)] = []
     private var watchdog: Timer?
     private var isOpeningFromClosed = false
+    private var isContinuousPlaying = false
     private var stabilityTimer: Timer?
 
     private let stillBand = 0.5
@@ -104,6 +106,41 @@ final class FoldController {
         var state = FoldState.closing(delta: delta, reference: ref, closeAngle: PreferencesManager.shared.closeAngle)
         state.velocity = min(1, max(0, -slope) / 300)
 
+        let style = PreferencesManager.shared.style
+        let soundEnabled = PreferencesManager.shared.soundEnabled
+        let visualProgress = renderer.current.progress
+        
+        if visualProgress < 0.2 {
+            hasPlayedEndSound = false
+        }
+        
+        // Continuous sounds
+        if visualProgress > 0.05 && visualProgress < 0.95 {
+            if soundEnabled && !isContinuousPlaying {
+                isContinuousPlaying = true
+                if style == .glitch { AudioManager.shared.startContinuous(.glitchNoise) }
+                else if style == .notch { AudioManager.shared.startContinuous(.shoosh) }
+            }
+        } else {
+            if isContinuousPlaying {
+                isContinuousPlaying = false
+                AudioManager.shared.stopContinuous()
+            }
+        }
+
+        // End sounds
+        let threshold = (style == .crt) ? 0.88 : 0.98
+        if visualProgress >= threshold && !hasPlayedEndSound {
+            hasPlayedEndSound = true
+            if soundEnabled {
+                if style == .crt {
+                    AudioManager.shared.playSound(.crtPowerOff)
+                } else if style == .fade || style == .sleep || style == .hold || style == .swell {
+                    AudioManager.shared.playSound(.mechClick)
+                }
+            }
+        }
+
         if isOpeningFromClosed && !overlay.isShowing {
             renderer.startOpening(targetState: state)
         } else {
@@ -112,10 +149,14 @@ final class FoldController {
 
         if !overlay.isShowing, renderer.snapshot != nil, delta >= showDelta {
             overlay.show()
+// No early sound
         }
     }
 
     func reset() {
+        hasPlayedEndSound = false
+        AudioManager.shared.stopContinuous()
+        isContinuousPlaying = false
         hideOverlay()
         lastSampleTime = 0
         isOpeningFromClosed = false
@@ -123,8 +164,8 @@ final class FoldController {
 
     func runPreview() {
         let start = angle ?? 105
-        let span = max(20, start - PreferencesManager.shared.closeAngle)
-        let bottom = max(0, start - 0.8 * span)
+        // Simulate all the way to 5 degrees below closeAngle to ensure progress >= 1.0 triggers
+        let bottom = max(0.0, PreferencesManager.shared.closeAngle - 5.0)
         LidAngleSensor.shared.simulate(from: start, to: bottom)
     }
 

@@ -5,13 +5,13 @@
 Icon
 
 # Build artifacts
-build/
+build.noindex/
 DerivedData/
 *.ipa
 *.dmg
 *.app/
 Source/Archives/
-Source/build/
+Source/build.noindex/
 
 # Xcode / Swift
 *.pbxuser

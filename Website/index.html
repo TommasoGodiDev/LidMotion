@@ -51,7 +51,7 @@
             <div class="nav-links">
                 <a href="#duo">Duo Effect</a>
                 <a href="#effects">All Effects</a>
-                <a href="#pricing" class="btn-buy">Open Source</a>
+                <a href="#pricing" class="btn-buy">Download</a>
             </div>
         </div>
     </nav>
@@ -64,32 +64,11 @@
         <img src="AppIcon.png" alt="LidMotion Icon" class="hero-icon">
         <h1 class="hero-title">LidMotion</h1>
         <p class="hero-subtitle">All the magical effects, perfected.</p>
-    </header>
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="#pricing" class="btn-buy-large hero-cta">Download for free</a>
+        </div>
 
-    <!-- ARCHIVED 3D MAC ANIMATION
-    <section class="hero-scroll-container" id="hero-scroll-container">
-            <div class="hero-sticky-content">
-                <img src="AppIcon.png" alt="LidMotion Icon" class="hero-icon">
-                <h1 class="hero-title">LidMotion</h1>
-                <p class="hero-subtitle">All the magical effects, perfected.</p>
-
-                <div class="mac-3d-wrapper">
-                    <div class="mac-3d" id="mac-3d">
-                        <div class="mac-lid" id="mac-lid">
-                            <div class="mac-screen">
-                                <div class="mac-notch"></div>
-
-
-
-                                <div class="mac-ui">
-                                    <div class="mac-wallpaper"></div>
-
-                                    <div class="mac-dock">
-                                    </div>
-
-                                </div>
-
-                                </div>
+        
 
 
                                 <div class="screen-dimmer" id="screen-dimmer"></div>
@@ -180,49 +159,206 @@
                         <h3>Native design</h3>
                         <p>Built with SwiftUI to look and feel exactly like a system utility.</p>
                     </div>
-                    <div class="bento-card" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 20px;">
-                        <div class="feature-icon" style="margin: 0; font-size: 50px;">🔋</div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0;">Runs silently</h3>
-                            <p style="margin: 0;">0% CPU usage in the background. Your battery won't even notice it.</p>
-                        </div>
+                    <div class="bento-card">
+                        <div class="feature-icon">🔋</div>
+                        <h3>Runs silently</h3>
+                        <p>0% CPU usage in the background. Your battery won't even notice it.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing & Installation -->
-        <section id="pricing" class="pricing-section">
+        
+        <!-- Sound & Colors Section -->
+        <section class="features-split fade-up" style="margin-top: 80px; padding: 40px 0;">
+            <div class="content-wrapper" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+                <div class="split-text" style="flex: 1; min-width: 300px;">
+                    <h2 class="section-title" style="text-align: left;">Sight and Sound.</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; line-height: 1.6;">LidMotion doesn't just look incredible. It sounds incredible. Experience the tactile click of mechanical switches or the deep buzz of a CRT turning off, perfectly synced to your lid's physical movement.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 30px; display: flex; flex-direction: column; gap: 15px; font-size: 1.1rem; font-weight: 500;">
+                        <li style="display: flex; align-items: center; gap: 15px;"><div style="background: rgba(255,255,255,0.1); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">🔊</div> Mechanical Click</li>
+                        <li style="display: flex; align-items: center; gap: 15px;"><div style="background: rgba(255,255,255,0.1); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">📺</div> CRT Power Zap</li>
+                        <li style="display: flex; align-items: center; gap: 15px;"><div style="background: rgba(255,255,255,0.1); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">🎨</div> Custom Phosphor Colors</li>
+                    </ul>
+                </div>
+                <div class="split-visual" style="flex: 1; min-width: 300px; display: flex; justify-content: center; position: relative;">
+                    <div style="width: 100%; aspect-ratio: 1; max-width: 400px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <!-- Animated equalizer rings -->
+                        <div class="ring" style="position: absolute; width: 40%; height: 40%; border: 2px solid rgba(255,255,255,0.2); border-radius: 50%; animation: pulseRing 2s infinite ease-out;"></div>
+                        <div class="ring" style="position: absolute; width: 60%; height: 60%; border: 2px solid rgba(255,255,255,0.1); border-radius: 50%; animation: pulseRing 2s infinite ease-out 0.6s;"></div>
+                        <div class="ring" style="position: absolute; width: 80%; height: 80%; border: 2px solid rgba(255,255,255,0.05); border-radius: 50%; animation: pulseRing 2s infinite ease-out 1.2s;"></div>
+                        <div style="font-size: 80px; z-index: 10;">🎧</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Apple Silicon Section -->
+        <section class="silicon-section fade-up" style="margin-top: 80px; text-align: center;">
             <div class="content-wrapper">
-                <div class="pricing-card fade-up">
-                    <h2 class="price-title">LidMotion 1.0</h2>
-                    <p class="compatibility">Requires macOS 14.0 or later.</p>
-                    <div class="price" style="font-size: 1.5rem; margin-bottom: 1.5rem;">LidMotion is free and open source.</div>
-                    <a href="https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.0.0" class="btn-buy-large" target="_blank" rel="noopener">Download for free</a>
-
-                    <div style="margin-top: 2rem;">
-                        <p style="font-size: 0.95rem; color: #86868b; margin-bottom: 0.8rem;">LidMotion is completely free. If you enjoy it, consider supporting its development!</p>
-                        <a href="https://buymeacoffee.com/lidmotion" target="_blank" rel="noopener" style="display: inline-block; background-color: #FFDD00; color: #000000; padding: 10px 20px; border-radius: 980px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: opacity 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">☕ Buy me a coffee</a>
+                <div class="chip-container" style="position: relative; width: 120px; height: 120px; margin: 0 auto 30px;">
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
                     </div>
+                </div>
+                <h2 class="section-title">Built for Apple Silicon.</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">Engineered natively in Swift and Metal, LidMotion utilizes hardware acceleration to deliver 120FPS animations with strictly 0% idle CPU overhead.</p>
+            </div>
+        </section>
 
-                    <div class="install-instructions">
-                        <h4>First Launch Instructions</h4>
-                        <ol>
-                            <li>Open <strong>System Settings → Privacy & Security</strong>. Scroll down and click <strong>Open Anyway</strong> for LidMotion.</li>
-                            <li>Allow <strong>Accessibility</strong> and <strong>Screen Recording</strong> permissions to enable the 3D effect.</li>
-                        </ol>
+        <!-- Privacy Section -->
+        <section class="privacy-section fade-up" style="margin-top: 80px; margin-bottom: 80px; text-align: center;">
+            <div class="content-wrapper">
+                <div style="font-size: 60px; margin-bottom: 20px;">🔒</div>
+                <h2 class="section-title">What happens on your Mac, stays on your Mac.</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">LidMotion operates 100% locally. No network requests. No analytics. No data collection. Open source and fully transparent. Always.</p>
+            </div>
+        </section>
+
+        
+        <!-- Compatibility Section -->
+        <section class="compatibility-section fade-up" style="margin-top: 80px; margin-bottom: 80px; padding: 40px; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">
+            <div class="content-wrapper">
+                <div style="font-size: 40px; margin-bottom: 20px;">💻</div>
+                <h2 class="section-title" style="font-size: 2.5rem;">Check your Mac's compatibility.</h2>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6;">LidMotion requires a precise hardware <strong>Lid Angle Sensor (LAS)</strong> to track the exact degree of your display. This sensor is included in all modern Apple Silicon MacBooks featuring the new uniform chassis design.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; text-align: left; max-width: 850px; margin: 0 auto;">
+                    <div style="flex: 1; min-width: 250px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 15px; font-size: 1.1rem;">✅ Fully Supported</h4>
+                        <ul style="color: var(--text-secondary); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                            <li>• <strong>MacBook Pro 14" & 16"</strong> (M1, M2, M3, M4, M5)</li>
+                            <li>• <strong>MacBook Air 13" & 15"</strong> (M2, M3, M4, M5)</li>
+                            <li>• MacBook Pro 16-inch (2019, Intel)</li>
+                        </ul>
                     </div>
+                    <div style="flex: 1; min-width: 250px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color: #f87171; margin-top: 0; margin-bottom: 15px; font-size: 1.1rem;">❌ Not Supported</h4>
+                        <ul style="color: var(--text-secondary); list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                            <li>• <strong>MacBook Air M1</strong> (2020) & older</li>
+                            <li>• <strong>MacBook Pro 13"</strong> (M1, M2) & older</li>
+                            <li>• Desktop Macs (iMac, Mac mini, Studio)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        
+        <!-- FAQ Section -->
+        <section class="faq-section fade-up" style="margin-top: 100px; margin-bottom: 80px; max-width: 700px; margin-left: auto; margin-right: auto; padding: 0 20px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="accordion-container" style="display: flex; flex-direction: column; gap: 15px;">
+                <details style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px 20px; transition: all 0.2s ease;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem; color: #fff; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        Does it drain my battery?
+                        <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s;">▼</span>
+                    </summary>
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                        Not at all. LidMotion uses a highly optimized hardware event listener. It registers 0.0% CPU usage when idle and only wakes up the GPU for the fraction of a second when the lid is actively moving.
+                    </div>
+                </details>
+
+                <details style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px 20px; transition: all 0.2s ease;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem; color: #fff; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        Can I use it with an external monitor?
+                        <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s;">▼</span>
+                    </summary>
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                        Yes! LidMotion only renders on your Mac's built-in display. If you close your MacBook to use an external monitor in "Clamshell Mode", the animation will play perfectly on the built-in screen just before it shuts off.
+                    </div>
+                </details>
+
+                <details style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px 20px; transition: all 0.2s ease;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem; color: #fff; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none;">
+                        Why does it need Screen Recording permissions?
+                        <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s;">▼</span>
+                    </summary>
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                        To create the seamless 3D folding effect, LidMotion needs to capture a single frame of your desktop exactly when you start closing the lid. This frame is rendered in 3D space. No data is ever recorded, saved, or transmitted.
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Pricing & Installation -->
+        <section id="pricing" class="pricing-section" style="margin-bottom: 80px;">
+            <div class="content-wrapper">
+                <div class="pricing-card fade-up" style="max-width: 500px; padding: 50px 40px;">
+                    <h2 class="price-title" style="margin-bottom: 10px;">LidMotion 1.0</h2>
+                    <p class="compatibility" style="margin-bottom: 30px;">Requires macOS 14.0 or later.</p>
+                    <div class="price" style="font-size: 1.2rem; margin-bottom: 30px; font-weight: 500;">Free and open source. Forever.</div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                        <a href="https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.2" class="btn-buy-large" target="_blank" rel="noopener" style="width: 100%; text-align: center; box-sizing: border-box;">Download for free</a>
+                        
+                        <a href="https://buymeacoffee.com/lidmotion" target="_blank" rel="noopener" style="display: inline-block; background-color: #FFDD00; color: #000000; padding: 14px 20px; border-radius: 980px; font-weight: 600; text-decoration: none; font-size: 1rem; transition: transform 0.2s; width: 100%; box-sizing: border-box; text-align: center;">☕ Buy me a coffee</a>
+                    </div>
+                </div>
+
+                <div class="accordion-container fade-up" style="max-width: 500px; margin: 30px auto 0; text-align: left;">
+                    <details style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; transition: all 0.3s ease;">
+                        <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem; color: #fff; list-style: none; display: flex; justify-content: space-between; outline: none; align-items: center;">
+                            First Launch Instructions
+                            <span class="accordion-icon" style="font-size: 0.8rem; transition: transform 0.3s;">▼</span>
+                        </summary>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-secondary); font-size: 1rem; line-height: 1.6;">
+                            <ol style="padding-left: 20px; margin: 0;">
+                                <li style="margin-bottom: 10px;">Open <strong>System Settings → Privacy & Security</strong>. Scroll down and click <strong>Open Anyway</strong> for LidMotion.</li>
+                                <li>Allow <strong>Accessibility</strong> and <strong>Screen Recording</strong> permissions to enable the 3D effect.</li>
+                            </ol>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="content-wrapper footer-wrapper" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <p class="copyright" style="margin: 0;">&copy; 2026 LidMotion. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="terms.html" style="color: var(--text-secondary); text-decoration: none; font-size: 13px;">Terms & Conditions</a>
+        <footer class="footer" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 20px; margin-top: 60px; background: rgba(0,0,0,0.3);">
+        <div class="content-wrapper" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px;">
+            <div style="flex: 1; min-width: 250px;">
+                <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 10px; color: #fff;">LidMotion</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin: 0;">Designed and developed with 🤍 for macOS.<br>Making every physical interaction magical.</p>
             </div>
+            
+            <div style="display: flex; gap: 60px; flex-wrap: wrap;">
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 15px; font-size: 0.95rem;">Product</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#effects" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Showcase</a>
+                        <a href="https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.2" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Download</a>
+                        <a href="https://buymeacoffee.com/lidmotion" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Donate</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 15px; font-size: 0.95rem;">Resources</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://github.com/TommasoGodiDev/LidMotion" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Source Code</a>
+                        <a href="https://github.com/TommasoGodiDev/LidMotion/issues" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Report a Bug</a>
+                        <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper" style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: var(--text-secondary); font-size: 0.85rem;">
+            <div>&copy; 2026 LidMotion. All rights reserved.</div>
+            <div>Not affiliated with Apple Inc.</div>
         </div>
     </footer>
 

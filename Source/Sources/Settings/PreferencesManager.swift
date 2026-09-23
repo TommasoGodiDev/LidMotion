@@ -37,6 +37,42 @@ enum LidStyle: String, CaseIterable, Identifiable {
     }
 }
 
+
+/* LidSound enum removed */
+enum OldLidSound: String {
+    case none = "none"
+    case crtPowerOff = "crt"
+    case mechClick = "mech"
+    var id: String { rawValue }
+    var title: String {
+        switch self {
+        case .none: return "None"
+        case .crtPowerOff: return "CRT Power Off"
+        case .mechClick: return "Mechanical Click"
+        }
+    }
+}
+
+enum LidColor: String, CaseIterable, Identifiable {
+    case none = "none"
+    case green = "green"
+    case amber = "amber"
+    case blue = "blue"
+    case red = "red"
+    case purple = "purple"
+    var id: String { rawValue }
+    var title: String {
+        switch self {
+        case .none: return "None (Original)"
+        case .green: return "Matrix Green"
+        case .amber: return "Vintage Amber"
+        case .blue: return "Deep Blue"
+        case .red: return "Vampire Red"
+        case .purple: return "Neon Purple"
+        }
+    }
+}
+
 enum LidPreset: String, CaseIterable, Identifiable {
     case standard = "Default"
     case subtle = "Subtle"
@@ -62,6 +98,18 @@ final class PreferencesManager: ObservableObject {
         static let reflections    = "LidMotion_reflections"
         static let animationSpeed = "LidMotion_animationSpeed"
         static let preset         = "LidMotion_preset"
+        static let soundEnabled = "LidMotion_soundEnabled"
+        static let tintColor      = "LidMotion_tintColor"
+    }
+
+    @Published var soundEnabled: Bool {
+        didSet { defaults.set(soundEnabled, forKey: Keys.soundEnabled) }
+    }
+    /* @Published var sound: LidSound {
+        */
+    
+    @Published var tintColor: LidColor {
+        didSet { defaults.set(tintColor.rawValue, forKey: Keys.tintColor) }
     }
 
     @Published var isEnabled: Bool {
@@ -119,6 +167,8 @@ final class PreferencesManager: ObservableObject {
 
     init() {
         self.isEnabled = defaults.object(forKey: Keys.isEnabled) as? Bool ?? true
+        self.soundEnabled = defaults.object(forKey: Keys.soundEnabled) as? Bool ?? false
+        self.tintColor = LidColor(rawValue: defaults.string(forKey: Keys.tintColor) ?? "") ?? LidColor.none
         self.hasCompletedOnboarding = defaults.object(forKey: Keys.hasCompletedOnboarding) as? Bool ?? false
         
         self.style = LidStyle(rawValue: defaults.string(forKey: Keys.style) ?? "") ?? .hold

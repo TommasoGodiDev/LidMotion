@@ -31,27 +31,30 @@ struct OnboardingView: View {
             }
             .padding(.bottom, 40)
             
-            // Feature List
-            VStack(alignment: .leading, spacing: 24) {
+            // First Launch Instructions
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Important First Launch Steps")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundColor(.primary)
+                    .padding(.bottom, 4)
+                
                 FeatureRow(
-                    icon: "eye",
-                    title: "3D Hologram",
-                    description: "Your desktop image folds into real space as you close the screen."
+                    icon: "1.circle.fill",
+                    title: "Screen Recording Permission",
+                    description: "macOS requires this to capture a single frame of your desktop precisely when you close the lid. No data is ever recorded or saved. 100% private."
                 )
                 
                 FeatureRow(
-                    icon: "sparkles",
-                    title: "Preview Animation",
-                    description: "Click below to see the effect in action without closing your Mac.",
-                    action: "Try now",
-                    onAction: onPreview
+                    icon: "2.circle.fill",
+                    title: "Accessibility Permission",
+                    description: "Allows the app to listen for the physical lid angle sensor without interacting with your other windows."
                 )
                 
                 FeatureRow(
                     icon: "lock.shield",
-                    title: "Permissions Required",
-                    description: "LidMotion needs 'Screen Recording' and 'Accessibility' permissions to animate the lid and read your desktop pixels. Data NEVER leaves your Mac.",
-                    action: appState.hasScreenRecordingPermission ? "✓ Authorized" : "Open Settings...",
+                    title: "Authorize LidMotion",
+                    description: "Click below to open System Settings, navigate to Privacy & Security, and toggle LidMotion ON for both Screen Recording and Accessibility.",
+                    action: appState.hasScreenRecordingPermission ? "✓ Authorized (Ready to go!)" : "Grant Permissions",
                     onAction: appState.hasScreenRecordingPermission ? nil : { appState.requestPermissions() },
                     isSuccess: appState.hasScreenRecordingPermission
                 )

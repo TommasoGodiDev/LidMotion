@@ -67,6 +67,9 @@ private struct FoldUniforms {
     var height: Float
     var velocity: Float
     var gloss: Float
+    var tintColorR: Float
+    var tintColorG: Float
+    var tintColorB: Float
 }
 
 final class DuoRenderer: NSObject, MTKViewDelegate {
@@ -342,6 +345,17 @@ final class DuoRenderer: NSObject, MTKViewDelegate {
                         state: FoldState, appearance: FoldAppearance) {
         guard let encoder = commandBuffer.makeRenderCommandEncoder(descriptor: pass) else { return }
         let perspective = min(1, max(0, appearance.perspective))
+        let tint = PreferencesManager.shared.tintColor
+        var r: Float = 1.0, g: Float = 1.0, b: Float = 1.0
+        switch tint {
+        case .none:  r = 1.0; g = 1.0; b = 1.0
+        case .green: r = 0.2; g = 1.0; b = 0.3
+        case .amber: r = 1.0; g = 0.7; b = 0.2
+        case .blue:  r = 0.2; g = 0.5; b = 1.0
+        case .red:   r = 1.0; g = 0.2; b = 0.2
+        case .purple:r = 0.8; g = 0.2; b = 1.0
+        }
+
         var uniforms = FoldUniforms(
             tilt: Float(state.tilt),
             progress: Float(state.progress),
@@ -355,7 +369,10 @@ final class DuoRenderer: NSObject, MTKViewDelegate {
             width: Float(texture.width),
             height: Float(texture.height),
             velocity: Float(state.velocity),
-            gloss: Float(appearance.reflections)  // 0…1 intensità riflessi
+            gloss: Float(appearance.reflections),
+            tintColorR: r,
+            tintColorG: g,
+            tintColorB: b
         )
         encoder.setRenderPipelineState(pipeline)
         encoder.setFragmentTexture(texture, index: 0)

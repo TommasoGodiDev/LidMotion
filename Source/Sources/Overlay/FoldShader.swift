@@ -19,6 +19,9 @@ enum FoldShader {
         float height;
         float velocity;     
         float gloss;        
+        float tintColorR;
+        float tintColorG;
+        float tintColorB;
     };
 
     struct VOut { float4 position [[position]]; float2 uv; };
@@ -116,6 +119,7 @@ enum FoldShader {
         
         float luminance = dot(color, float3(0.299, 0.587, 0.114));
         color = mix(color, float3(luminance), clamp(u.perspective, 0.0, 1.0) * p);
+        color *= mix(float3(1.0), float3(u.tintColorR, u.tintColorG, u.tintColorB), p * u.progress);
 
         float shade = 1.0 - clamp(u.dim, 0.0, 1.0) * p;
         float alpha = 1.0 - smoothstep(0.2, 1.0, p);
@@ -142,6 +146,9 @@ enum FoldShader {
         float b = tex.sample(s, clamp(src - float2(aberration, 0), 0.0, 1.0)).b;
         
         float3 color = float3(r, g, b);
+        float3 targetTint = float3(u.tintColorR, u.tintColorG, u.tintColorB);
+        float3 currentTint = mix(float3(1.0), targetTint, u.progress);
+        color *= currentTint;
         
         float scanline = sin(uv.y * 1200.0) * 0.1 * clamp(u.gloss, 0.0, 1.0);
         color -= scanline;

@@ -13,7 +13,7 @@ struct SettingsView: View {
                     headerSection
                     appearanceSection
                     behaviorSection
-                    systemSection
+                    Text("LidMotion v1.2").font(.system(size: 10)).foregroundColor(.secondary).padding(.top, 10).frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(24)
                 .frame(maxWidth: 420)
@@ -144,6 +144,19 @@ struct SettingsView: View {
                         Divider().opacity(0.5)
                         SliderRow(icon: "circle.lefthalf.filled", title: "Dimming", value: $prefs.dimming, range: 0...1, format: "%.0f%%", multiplier: 100)
                     }
+                    if prefs.style == .crt || prefs.style == .glitch || prefs.style == .fade {
+                        Divider().opacity(0.5)
+                        HStack {
+                            Image(systemName: "paintpalette.fill").frame(width: 20).foregroundColor(.secondary)
+                            Text("Color Tint").frame(width: 90, alignment: .leading)
+                            Picker("", selection: $prefs.tintColor) {
+                                ForEach(LidColor.allCases) { c in Text(c.title).tag(c) }
+                            }
+                            .labelsHidden()
+                            .pickerStyle(MenuPickerStyle())
+                            Spacer()
+                        }
+                    }
                 }
             }
         }
@@ -160,51 +173,12 @@ struct SettingsView: View {
                     SliderRow(icon: "bolt.fill", title: "Response", value: $prefs.animationSpeed, range: 0...1, format: "%.0f%%", multiplier: 100)
                     Divider().opacity(0.5)
                     SliderRow(icon: "moon.fill", title: "Close at", value: $prefs.closeAngle, range: 0...45, format: "%.0f°", multiplier: 1)
-                }
-            }
-        }
-    }
-    
-    // MARK: - System
-    
-    private var systemSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            sectionTitle("SYSTEM")
-            
-            LiquidBox {
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        if appState.hasScreenRecordingPermission {
-                            Label("Screen Recording authorized", systemImage: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        } else {
-                            Label("Screen Recording missing", systemImage: "exclamationmark.triangle.fill")
-                                .foregroundColor(.orange)
-                        }
-                        
-                        Spacer()
-                        
-                        Button("Privacy...") {
-                            appState.requestPermissions()
-                        }
-                        .controlSize(.small)
-                    }
-                    
                     Divider().opacity(0.5)
-                    
                     HStack {
-                        Label("Hinge sensor", systemImage: "sensor")
-                            .foregroundColor(.secondary)
+                        Image(systemName: "speaker.wave.2.fill").frame(width: 20).foregroundColor(.secondary)
+                        Toggle("Sound Effects", isOn: $prefs.soundEnabled)
+                            .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         Spacer()
-                        if !appState.isSensorAvailable {
-                            Text("Not available")
-                                .font(.system(.body, design: .monospaced))
-                                .foregroundColor(.red)
-                        } else {
-                            Text(String(format: "%.1f°", appState.currentAngle))
-                                .font(.system(.body, design: .monospaced))
-                                .foregroundColor(.secondary)
-                        }
                     }
                 }
             }
@@ -220,6 +194,7 @@ struct SettingsView: View {
                     prefs.resetToDefaults()
                 }
             }
+            
             
             Spacer()
             

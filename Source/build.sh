@@ -14,6 +14,8 @@ mkdir -p "$APP_BUNDLE/Contents/MacOS"
 mkdir -p "$APP_BUNDLE/Contents/Resources"
 
 SOURCES=(
+    "$SCRIPT_DIR/Sources/Audio/AudioManager.swift"
+
     "$SCRIPT_DIR/Sources/main.swift"
     "$SCRIPT_DIR/Sources/AppDelegate.swift"
     "$SCRIPT_DIR/Sources/Settings/PreferencesManager.swift"
@@ -54,6 +56,8 @@ echo "Copying Info.plist and assets..."
 cp "$SCRIPT_DIR/Resources/Info.plist" "$APP_BUNDLE/Contents/Info.plist"
 if [ -f "$SCRIPT_DIR/Resources/AppIcon.icns" ]; then
     cp "$SCRIPT_DIR/Resources/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
+    cp "$SCRIPT_DIR"/Resources/*.wav "$APP_BUNDLE/Contents/Resources/" 2>/dev/null || true
+
 fi
 
 echo "Removing extended attributes..."
