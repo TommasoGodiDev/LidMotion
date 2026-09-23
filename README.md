@@ -6,7 +6,7 @@ LidMotion brings beautiful, native closing effects to your MacBook. Experience i
 
 LidMotion is incredibly lightweight, runs silently in your menu bar, and requires zero bloated windows or dock icons. Just raw, native performance.
 
-### [🚀 Download LidMotion 1.0.0](https://github.com/TommasoGodiDev/LidMotion/releases/download/v1.0.0/LidMotion_1.0_Final.dmg)
+### [🚀 Download LidMotion 1.2](https://github.com/TommasoGodiDev/LidMotion/releases/download/v1.2/LidMotion_v1.2.dmg)
 
 ## Features
 - **The Iconic Duo Effect:** Inspired by classic animations, seamlessly adapted for macOS.
@@ -20,7 +20,7 @@ LidMotion is incredibly lightweight, runs silently in your menu bar, and require
 
 ## Compilation & Installation
 
-If you just want to use the app, you can download the pre-compiled DMG from the [v1.0.0 Release page](https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.0.0).
+If you just want to use the app, you can download the pre-compiled DMG from the [v1.0.0 Release page](https://github.com/TommasoGodiDev/LidMotion/releases/tag/v1.2).
 
 Alternatively, as an open-source project, you can easily build LidMotion from source:
 1. Clone this repository: `git clone https://github.com/TommasoGodiDev/LidMotion.git`
